@@ -2,7 +2,8 @@ import requests
 import hashlib
 import smtplib, ssl
 from sys import path, argv
-from os import mkdir
+from os import mkdir, environ
+from dotenv import load_dotenv, find_dotenv
 from datetime import datetime
 from bs4 import BeautifulSoup
 
@@ -27,9 +28,6 @@ class monitor:
 
     sslp = 465
     smtp = 'smtp.gmail.com'
-    sender = 'web.js.monitor@gmail.com'
-    receiver = 'kurtcms@gmail.com'
-    pw = '(redacted)'
     title = ' has been updated'
     body = 'Updates are stored in separated files'
     subject = 'Subject: '
@@ -42,6 +40,27 @@ class monitor:
         self.msg = f'{self.subject}{url + self.title}\n{self.body}'
         self.dname = url.split(self.slash*2)[-1].split(self.slash)[0]
         self.hname = self.dname + self.shasuffix
+
+        if load_dotenv(find_dotenv()) == False:
+            '''
+            Raise a system exit on error reading environment variables
+            with python-dotenv
+            '''
+            raise SystemExit(ERR_INVALID_ENV)
+
+        try:
+            '''
+            Read and set the environment variables needed for the VCO
+            client authentication
+            '''
+            self.sender = environ['EMAIL_SENDER']
+            self.receiver = environ['EMAIL_RECEIVER']
+            self.pw = environ['EMAIL_SENDER_PASSWORD']
+        except KeyError as e:
+            '''
+            Raise a system exit on error reading the environment variables
+            '''
+            raise SystemExit(e)
 
         '''
         Download a copy of the URL and raise a system exit
