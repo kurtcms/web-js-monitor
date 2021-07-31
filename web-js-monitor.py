@@ -105,9 +105,10 @@ class monitor:
             server.login(self.sender, self.pw)
             server.sendmail(self.sender, self.receiver, self.msg)
 
-if len(argv) == 2:
-    # Create the object and subsequently call its corresponding method for matching if one and precisely one argument is supplied and raise a system exit if otherwise
-    w = monitor(argv[1])
-    w.match()
-else:
-    raise SystemExit(ERR_INVALID_ENV)
+if __name__ == "__main__":
+    if len(argv) == 2:
+        # Create the object and subsequently call its corresponding method for matching if one and precisely one argument is supplied and raise a system exit if otherwise
+        w = monitor(argv[1])
+        w.match()
+    else:
+        raise SystemExit(ERR_INVALID_ENV)
