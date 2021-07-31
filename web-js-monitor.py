@@ -7,7 +7,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 # Setting the error message for when this script is called with one too many argument or less
-errinvarg = 'This Python script takes one argument of a valid URL'
+ERR_INVALID_ENV = 'This Python script takes one argument of a valid URL'
 
 class monitor:
     # Setting the variables that will be referred to throughout the class
@@ -110,4 +110,4 @@ if len(argv) == 2:
     w = monitor(argv[1])
     w.match()
 else:
-    raise SystemExit(errinvarg)
+    raise SystemExit(ERR_INVALID_ENV)
