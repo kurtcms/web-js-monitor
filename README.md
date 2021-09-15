@@ -76,7 +76,7 @@ $ nano /app/crontab
 And define the variables accordingly.
 
 ```
-*/15 * * * * /usr/bin/python3 /app/web-js-monitor.py -u https://lookingglass.pccwglobal.com/ > /proc/1/fd/1 2>/proc/1/fd/2
+*/15 * * * * /usr/bin/python3 /app/web-js-monitor.py -e -u https://lookingglass.pccwglobal.com/ > /proc/1/fd/1 2>/proc/1/fd/2
 #
 # Usage: web-js-monitor.py [-e] -u <url>
 #
@@ -154,7 +154,7 @@ Option:
 It may then be executed with a task scheduler such as [cron](https://crontab.guru/) that runs it once every 15 minutes for example.
 
 ```shell
-$ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/web-js-monitor.py -u https://lookingglass.pccwglobal.com/") | crontab -
+$ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/web-js-monitor.py -e -u https://lookingglass.pccwglobal.com/") | crontab -
 ```
 
 ## Checksum and the Downloaded Contents
