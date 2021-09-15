@@ -11,8 +11,7 @@ VOLUME /app
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
-COPY web-js-monitor.py web-js-monitor.py
-COPY *.env .env
+COPY web-js-monitor.py *.env .
 COPY crontab /etc/cron.d/crontab
 
 RUN pip3 install -r requirements.txt
