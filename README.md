@@ -159,7 +159,7 @@ $ (crontab -l; echo "*/15 * * * * /usr/bin/python3 /app/web-js-monitor.py -u htt
 
 ## Checksum and the Downloaded Contents
 
-The SHA 256-bit checksum and the rest of the downloaded contents will be saved as separate files on a `Docker volume` that is accessible on the Docker host under `/var/lib/docker/volumes/<volume-name>/_data`. If the Python script is run as a standalone service, the files will be in the same directory of the script instead.
+The SHA 256-bit checksum and the rest of the downloaded contents will be saved as separate files on a `Docker volume` that is mounted in the same directory of the `docker-compose.yml` file on the Docker host. If the Python script is run as a standalone service, the files will be in the same directory of the script instead.
 
 In any case, the files are stored under a directory by the URL of the web page of interest, with the checksum stored in a file directly under it and the rest of the downloaded contents in a nested directory named by the full date and time of the download to ease access.
 
