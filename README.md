@@ -4,7 +4,7 @@ This Python app is containerised with [Docker Compose](https://docs.docker.com/c
 
 It does the following:
 
-1. Use the Python library, [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), to download a copy of the web page of interest and any JavaScript files that are referred to in the page;
+1. Use the Python libraries, [Requests](https://github.com/psf/requests) and [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/), to download a copy of the web page of interest and any JavaScript files that are referred to in the page;
 2. Use the [hashlib](https://docs.python.org/3/library/hashlib.html) module to compute a SHA 256-bit checksum with the downloaded contents; and
 3. Compare the checksum with a previous build, if one exists, and on mismatch save the checksum and a copy of the downloaded contents, before using the [smtplib](https://docs.python.org/3/library/smtplib.html) module to send a notification email to the predefined recipient if it is required. Otherwise if no previous checksum exists, save the checksum the rest of the downloaded contents for future matching and references.
 
