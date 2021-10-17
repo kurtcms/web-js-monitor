@@ -176,5 +176,5 @@ In any case, the files are stored under a directory by the URL of the web page o
 
 ## Reference
 
-- [Beautiful Soup Documentation
-](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- [Requests Documentation](https://docs.python-requests.org/en/latest/)
+- [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
