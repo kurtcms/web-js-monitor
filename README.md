@@ -10,7 +10,7 @@ It does the following:
 
 A detailed walk-through is available [here](https://kurtcms.org/web-monitoring-monitor-a-javascript-rendered-web-page-for-updates/).
 
-<img src="https://kurtcms.org/git/web-js-monitor/web-js-monitor-screenshot.png" width="550">
+<img src="https://github.com/kurtcms/web-js-monitor/blob/master/screenshot.png" width="550">
 
 ## Table of Content
 
