@@ -31,14 +31,15 @@ A detailed walk-through is available [here](https://kurtcms.org/web-monitoring-m
 Get started in three simple steps:
 
 1. [Download](#git-clone) a copy of the app;
-2. Create the [environment variables](#environment-variables) for email notification if needed and modify the [crontab](#crontab);
+2. Create the [environment variables](#environment-variables) for email notification if needed and modify the [crontab](#crontab); and
 3. [Docker Compose](#docker-compose) or [build and run](#build-and-run) the image manually to start the app, or alternatively run the Python script as a standalone service.
 
 ### Git Clone
 
-Download a copy of the script with `git clone`
+Download a copy of the script with `git clone`.
+
 ```shell
-$ git clone https://github.com/kurtcms/web-js-monitor /app/
+$ git clone https://github.com/kurtcms/web-js-monitor /app/web-js-monitor/
 ```
 
 ### Environment Variables
@@ -57,13 +58,13 @@ And define the variables accordingly.
 EMAIL_SSL_PORT = 465
 EMAIL_SMTP_SERVER = 'smtp.kurtcms.org'
 EMAIL_SENDER = 'alert@kurtcms.org'
-EMAIL_RECEIVER = 'kurtcms@gmail.com'
+EMAIL_RECEIVER = 'noc@kurtcms.org'
 EMAIL_SENDER_PASSWORD = '(redacted)'
 ```
 
 ### Crontab
 
-By default the app is scheduled with [cron](https://linux.die.net/man/8/cron) to pull a copy of the web page and check for changes every 15 minutes, with `stdout` and `stderr` redirected to the main process for `Docker logs`.  
+By default the app is scheduled with [cron](https://linux.die.net/man/8/cron) to pull a copy of the web page and check for changes every 15 minutes, with `stdout` and `stderr` redirected to the main process for `Docker logs`.
 
 Modify the `crontab` to feed in the URL of interest, and signify to the Python script whether email notification is needed. Change to a different schedule if required.
 
@@ -82,7 +83,7 @@ And define the variables accordingly.
 #   -h
 #     Display usage
 #   -e, --email
-#     Send email notification for changes
+#     Send email notification on changes
 #   -u, --url
 #     The URL of interest
 ```
@@ -122,7 +123,7 @@ Otherwise the Docker image can also be built manually.
 $ docker build -t web-js-monitor /app/web-js-monitor/
 ```
 
-Run the image with Docker once it is ready.  
+Run the image with Docker once it is ready.
 
 ```shell
 $ docker run -it --rm --name web-js-monitor web-js-monitor
@@ -139,6 +140,8 @@ In which case be sure to install the following required libraries:
 1. [Requests](https://github.com/psf/requests)
 2. [Python-dotenv](https://github.com/theskumar/python-dotenv)
 3. [Beautiful Soup](https://code.launchpad.net/~leonardr/beautifulsoup/bs4)
+
+Install them with [`pip3`](https://github.com/pypa/pip):
 
 ```shell
 $ pip3 install requests python-dotenv bs4
