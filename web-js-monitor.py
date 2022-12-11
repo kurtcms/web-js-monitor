@@ -17,7 +17,7 @@ class monitor:
       -h
         Display usage
       -e, --email
-        Send email notification for changes
+        Send email notification on changes
       -u, --url
         The URL of interest
     '''
