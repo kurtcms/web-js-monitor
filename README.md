@@ -36,10 +36,10 @@ Get started in three simple steps:
 
 ### Git Clone
 
-Download a copy of the script with `git clone`.
+Download a copy of the script with `git clone`. Be sure to pass the `--recurse-submodules` argument to initialise and update each submodule in the repository.
 
 ```shell
-$ git clone https://github.com/kurtcms/web-js-monitor /app/web-js-monitor/
+$ git clone --recurse-submodules https://github.com/kurtcms/web-js-monitor /app/web-js-monitor/
 ```
 
 ### Environment Variables
